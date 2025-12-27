@@ -31,11 +31,33 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
-// Ruta de prueba
+const path = require('path'); // ← asegúrate de tener esta línea al inicio
+
+// Página principal → card.html
 app.get('/', (req, res) => {
-    res.send('Servidor funcionando');
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'card.html'));
 });
 
+// Login / Registro
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+});
+
+// Inventario
+app.get('/inventario.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'inventario.html'));
+});
+
+// Movimientos
+app.get('/movimientos.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'movimientos.html'));
+});
+
+
+// Sirve la página de bienvenida (card.html)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'card.html'));
+});
 // === RUTAS CRUD PARA PRODUCTOS ===
 
 app.get('/productos', (req, res) => {

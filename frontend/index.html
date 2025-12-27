@@ -359,6 +359,23 @@
             })
             .catch(() => alert('❌ Error al exportar'));
     }
+
+
+
+
+
 </script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('registro') === '1') {
+        loginScreen.style.display = 'none';
+        registerScreen.style.display = 'block';
+        inventarioScreen.style.display = 'none';
+    }
+</script>
+
+
+
 </body>
 </html>
